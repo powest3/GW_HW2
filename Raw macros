@@ -1,0 +1,109 @@
+Sub HW_Task2_Lotto()
+
+    ' Create variables to hold winners. (Use "Long" because the numbers exceed the limit for integers)
+    Dim first_place As Long
+    Dim second_place As Long
+    Dim third_place As Long
+    Dim runner1 As Long
+    Dim runner2 As Long
+    Dim runner3 As Long
+    Dim i As Integer
+
+    ' Establish the winning ticket numbers
+    first_place = 3957481
+    second_place = 5865187
+    third_place = 2817729
+
+    ' Establish the runner-up numbers
+    runner1 = 2275339
+    runner2 = 5868182
+    runner3 = 1841402
+
+    ' Loop through each of the lotto tickets
+
+    ' ****************
+    ' [YOUR FOR LOOP WITH CONDITIONAL STATEMENTS HERE
+    ' ****************
+    For i = 1 To 1001
+        ' Check to see if Lotto Number for this row is first_place
+        If Cells(i, 3).Value = first_place Then
+            ' Add Winner First name
+            Cells(2, 6).Value = Cells(i, 1).Value
+            ' Add Winner Last name
+            Cells(2, 7).Value = Cells(i, 2).Value
+            ' Add Winning Number
+            Cells(2, 8).Value = Cells(i, 3).Value
+        End If
+        
+        ' Do the same for second_place
+        If Cells(i, 3).Value = second_place Then
+            ' Add Winner First name
+            Cells(3, 6).Value = Cells(i, 1).Value
+            ' Add Winner Last name
+            Cells(3, 7).Value = Cells(i, 2).Value
+            ' Add Winning Number
+            Cells(3, 8).Value = Cells(i, 3).Value
+        End If
+        
+        ' Do the same for third_place
+        If Cells(i, 3).Value = third_place Then
+            ' Add Winner First name
+            Cells(4, 6).Value = Cells(i, 1).Value
+            ' Add Winner Last name
+            Cells(4, 7).Value = Cells(i, 2).Value
+            ' Add Winning Number
+            Cells(4, 8).Value = Cells(i, 3).Value
+        End If
+    Next
+    
+    MsgBox "Congratulations " & Cells(2, 6).Value & " " & Cells(2, 7).Value & " for being first place!"
+    
+    ' FOR THE BONUS
+    ' Loop through the lotto tickets a second time to find the first instance of a "runner-up" winner
+
+    Dim found_runner As Integer
+    found_runner = 0
+    
+    ' ****************
+    ' [YOUR FOR LOOP WITH CONDITIONAL STATEMENTS HERE
+    ' ****************
+    For i = 1 To 1001
+        ' Check to see if Lotto Number is runner1
+        If Cells(i, 3).Value = runner1 Then
+            If found_runner = 0 Then
+                ' Add Winner First name
+                Cells(5, 6).Value = Cells(i, 1).Value
+                ' Add Winner Last name
+                Cells(5, 7).Value = Cells(i, 2).Value
+                ' Add Winning Number
+                Cells(5, 8).Value = Cells(i, 3).Value
+                found_runner = 1
+            End If
+        End If
+        ' Check to see if Lotto Number is runner2
+        If Cells(i, 3).Value = runner2 Then
+            If found_runner = 0 Then
+                ' Add Winner First name
+                Cells(5, 6).Value = Cells(i, 1).Value
+                ' Add Winner Last name
+                Cells(5, 7).Value = Cells(i, 2).Value
+                ' Add Winning Number
+                Cells(5, 8).Value = Cells(i, 3).Value
+                found_runner = 1
+            End If
+        End If
+        ' Check to see if Lotto Number is runner3
+        If Cells(i, 3).Value = runner3 Then
+            If found_runner = 0 Then
+                ' Add Winner First name
+                Cells(5, 6).Value = Cells(i, 1).Value
+                ' Add Winner Last name
+                Cells(5, 7).Value = Cells(i, 2).Value
+                ' Add Winning Number
+                Cells(5, 8).Value = Cells(i, 3).Value
+                found_runner = 1
+            End If
+        End If
+    Next
+
+End Sub
